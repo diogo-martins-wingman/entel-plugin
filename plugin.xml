@@ -25,7 +25,8 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/EntelPlugin.java" target-dir="src/pt/wingman/entel/plugin" />
-        <source-file src="src/android/Teste.java" target-dir="src/pt/wingman/entel/plugin" />
+        <!--<source-file src="src/android/EntelPlugin.java" target-dir="src/pt/wingman/entel/plugin" />
+        <source-file src="src/android/Teste.java" target-dir="src/pt/wingman/entel/plugin" />-->
+            <source-file src="src/android/" target-dir="src/pt/wingman/entel/plugin" />
     </platform>
 </plugin>
