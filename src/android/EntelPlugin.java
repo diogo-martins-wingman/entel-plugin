@@ -1,4 +1,4 @@
-package com.stanleyidesis.cordova.plugin;
+package pt.wingman.entel.plugin;
 // The native Toast API
 import android.widget.Toast;
 // Cordova-required packages
