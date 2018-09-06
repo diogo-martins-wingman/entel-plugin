@@ -8,14 +8,20 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import pt.wingman.entel.plugin.Teste;
+import pt.wingman.entel.plugin.FingerprintManager;
+
 public class EntelPlugin extends CordovaPlugin {
   private static final String DURATION_LONG = "long";
   @Override
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) {
       // Verify that the user sent a 'show' action
-      Toast.makeText(cordova.getActivity(), "dsa", Toast.LENGTH_LONG).show();
-      if (!action.equals("show")) {
+      //Toast.makeText(cordova.getActivity(), "dsa", Toast.LENGTH_LONG).show();
+      Teste.teste(cordova.getActivity().getApplicationContext());
+      FingerprintManager.getInstance().initialize(PluginActivity.this, PluginActivity.this, 1, 0, false);
+
+      /*if (!action.equals("show")) {
           System.out.println("teste");
         callbackContext.error("\"" + action + "\" is not a recognized action.");
         return false;
@@ -35,7 +41,7 @@ public class EntelPlugin extends CordovaPlugin {
         DURATION_LONG.equals(duration) ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
       // Display toast
       toast.show();
-      // Send a positive result to the callbackContext
+      // Send a positive result to the callbackContext*/
       PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
       callbackContext.sendPluginResult(pluginResult);
       return true;
