@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-entelplugin",
+  "name": "entelplugin",
   "version": "0.0.1",
   "description": "An Android Cordova plugin that allows users to read from a morpho device.",
   "cordova": {
-    "id": "cordova-plugin-entelplugin",
+    "id": "entelplugin",
     "platforms": [
       "android"
     ]

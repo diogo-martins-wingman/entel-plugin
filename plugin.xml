@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-entelplugin" version="0.0.1">
+        id="entelplugin" version="0.0.1">
     <name>EntelPlugin</name>
 
     <description>An Android Cordova plugin that allows users to read from a morpho device.</description>
     <license>Apache 2.0</license>
 
-    <keywords>cordova,android,toast,message,alert</keywords>
+    <keywords>cordova,android,morpho</keywords>
     <repo>https://github.com/diogo-martins-wingman/entel-plugin.git</repo>
     <issue>https://github.com/diogo-martins-wingman/entel-plugin/issues</issue>
   

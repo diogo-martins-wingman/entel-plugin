@@ -14,7 +14,9 @@ public class EntelPlugin extends CordovaPlugin {
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) {
       // Verify that the user sent a 'show' action
+      Toast.makeText(cordova.getActivity(), "dsa", Toast.LENGTH_LONG).show();
       if (!action.equals("show")) {
+          System.out.println("teste");
         callbackContext.error("\"" + action + "\" is not a recognized action.");
         return false;
       }
