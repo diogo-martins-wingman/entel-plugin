@@ -26,9 +26,7 @@
         </config-file>
             
         <config-file target="AndroidManifest.xml" parent="/*">
-            <feature name="EntelPlugin">
-                <uses-permission name="android.permission.WAKE_LOCK"/>
-            </feature>
+            <uses-permission name="android.permission.WAKE_LOCK"/>
         </config-file>
 
         <source-file src="src/android/EntelPlugin.java" target-dir="src/pt/wingman/entel/plugin" />
