@@ -56,13 +56,15 @@ public class EntelPlugin extends CordovaPlugin {
     private FingerprintManagerCallback getFingerprintManagerCallback(Context context, CallbackContext callbackContext) {
         return new FingerprintManagerCallback() {
             public void onFingerStatusUpdate(int fingerStatus) {
-                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, fingerStatus);
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, "{\"onFingerStatusUpdate\":{\"fingerStatus\":"+fingerStatus+"}}");
                 pluginResult.setKeepCallback(true);
                 callbackContext.sendPluginResult(pluginResult);
             }
 
             public void onBitmapUpdate(int width, int height, String base64String) {
-
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, "{\"onBitmapUpdate\":{\"width\":"+width+",\"height\":"+height+",\"base64String\":"+base64String+"}}");
+                pluginResult.setKeepCallback(true);
+                callbackContext.sendPluginResult(pluginResult);
             }
 
             public void onPercentageUpdate(int percentage) {
