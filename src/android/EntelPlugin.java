@@ -56,7 +56,7 @@ public class EntelPlugin extends CordovaPlugin {
     private FingerprintManagerCallback getFingerprintManagerCallback(Context context, CallbackContext callbackContext) {
         return new FingerprintManagerCallback() {
             public void onFingerStatusUpdate(int fingerStatus) {
-                PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT, fingerStatus);
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, fingerStatus);
                 pluginResult.setKeepCallback(true);
                 callbackContext.sendPluginResult(pluginResult);
             }
