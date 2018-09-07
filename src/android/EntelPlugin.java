@@ -62,7 +62,7 @@ public class EntelPlugin extends CordovaPlugin {
             }
 
             public void onBitmapUpdate(int width, int height, String base64String) {
-                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, "{\"onBitmapUpdate\":{\"width\":"+width+",\"height\":"+height+",\"base64String\":"+base64String+"}}");
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, "{\"onBitmapUpdate\":{\"width\":"+width+",\"height\":"+height+",\"base64String\":\""+base64String+"\"}}");
                 pluginResult.setKeepCallback(true);
                 callbackContext.sendPluginResult(pluginResult);
             }
