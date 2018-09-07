@@ -50,7 +50,7 @@ public class EntelPlugin extends CordovaPlugin {
 
             }
 
-            public void onBitmapUpdate(int width, int height, byte[] bytes) {
+            public void onBitmapUpdate(int width, int height, String base64String) {
 
             }
 
