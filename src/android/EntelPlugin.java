@@ -10,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import pt.wingman.entel.plugin.Teste;
 import pt.wingman.entel.plugin.FingerprintManager;
-import pt.wingman.entel.plugin.FingerprintManagerCallback
+import pt.wingman.entel.plugin.FingerprintManagerCallback;
 
 public class EntelPlugin extends CordovaPlugin {
   private static final String DURATION_LONG = "long";
@@ -20,7 +20,7 @@ public class EntelPlugin extends CordovaPlugin {
       // Verify that the user sent a 'show' action
       //Toast.makeText(cordova.getActivity(), "dsa", Toast.LENGTH_LONG).show();
       Teste.teste(cordova.getActivity().getApplicationContext());
-      FingerprintManager.getInstance().initialize(cordova.getActivity().getApplicationContext(),this, 1, 0, false);
+      FingerprintManager.getInstance().initialize(cordova.getActivity().getApplicationContext(),getFingerprintManagerCallback(), 1, 0, false);
 
       /*if (!action.equals("show")) {
           System.out.println("teste");
