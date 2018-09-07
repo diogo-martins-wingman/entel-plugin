@@ -73,6 +73,6 @@ public class EntelPlugin extends CordovaPlugin {
           public void onSDKError(String errorMessage){
 
           }
-      }
+      };
   }
 }
