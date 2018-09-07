@@ -35,7 +35,7 @@ public class EntelPlugin extends CordovaPlugin {
             FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
         }
 
-        if (action.equals("stop") {
+        if (action.equals("stop")) {
             FingerprintManager.getInstance().stop();
         }
 
