@@ -11,5 +11,5 @@ public interface FingerprintManagerCallback {
 
     void onError(int errorCode);
 
-    void onSDKError(String errorMessage);
+    void onSDKError(int sdkErrorCode, String errorMessage);
 }

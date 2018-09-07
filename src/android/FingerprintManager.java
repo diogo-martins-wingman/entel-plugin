@@ -111,14 +111,14 @@ public class FingerprintManager {
         morphoErrorCode = this.morphoDevice.openUsbDeviceFD(fingerPrintUsbDeviceConnection.sensorBus, fingerPrintUsbDeviceConnection.sensorAddress, fingerPrintUsbDeviceConnection.sensorFileDescriptor, 0);
         if (morphoErrorCode != ErrorCodes.MORPHO_OK) {
             fingerprintManagerCallback.onFingerprintStatusUpdate(FingerprintStatus.STOPED);
-            fingerprintManagerCallback.onSDKError(getSDKErrorMessage(morphoErrorCode));
+            fingerprintManagerCallback.onSDKError(morphoErrorCode, getSDKErrorMessage(morphoErrorCode));
             return;
         }
 
         morphoErrorCode = this.morphoDevice.getSecuConfig(secuConfig);
         if (morphoErrorCode != ErrorCodes.MORPHO_OK) {
             fingerprintManagerCallback.onFingerprintStatusUpdate(FingerprintStatus.STOPED);
-            fingerprintManagerCallback.onSDKError(getSDKErrorMessage(morphoErrorCode));
+            fingerprintManagerCallback.onSDKError(morphoErrorCode, getSDKErrorMessage(morphoErrorCode));
             return;
         }
 
@@ -128,7 +128,7 @@ public class FingerprintManager {
             morphoErrorCode = this.morphoDevice.offeredSecuOpen();
             if (morphoErrorCode != ErrorCodes.MORPHO_OK) {
                 fingerprintManagerCallback.onFingerprintStatusUpdate(FingerprintStatus.STOPED);
-                fingerprintManagerCallback.onSDKError(getSDKErrorMessage(morphoErrorCode));
+                fingerprintManagerCallback.onSDKError(morphoErrorCode, getSDKErrorMessage(morphoErrorCode));
                 return;
             }
         }
@@ -139,7 +139,7 @@ public class FingerprintManager {
             morphoErrorCode = this.morphoDevice.tunnelingOpen(MorphoUtils.toByteArray(hostCertificate));
             if (morphoErrorCode != ErrorCodes.MORPHO_OK) {
                 fingerprintManagerCallback.onFingerprintStatusUpdate(FingerprintStatus.STOPED);
-                fingerprintManagerCallback.onSDKError(getSDKErrorMessage(morphoErrorCode));
+                fingerprintManagerCallback.onSDKError(morphoErrorCode, getSDKErrorMessage(morphoErrorCode));
                 return;
             }
         }
@@ -163,7 +163,7 @@ public class FingerprintManager {
                     stop();
                 } else {
                     fingerprintManagerCallback.onFingerprintStatusUpdate(FingerprintStatus.STOPED);
-                    fingerprintManagerCallback.onSDKError(getSDKErrorMessage(morphoErrorCode));
+                    fingerprintManagerCallback.onSDKError(morphoErrorCode, getSDKErrorMessage(morphoErrorCode));
                 }
             }
         }).start();
