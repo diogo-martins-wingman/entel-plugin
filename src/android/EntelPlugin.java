@@ -86,7 +86,7 @@ public class EntelPlugin extends CordovaPlugin {
             }
 
             public void onSDKError(int sdkErrorCode, String errorMessage) {
-                PluginResult pluginResult = new  PluginResult(PluginResult.Status.ERROR, "{\"onSDKError\":{\"sdkErrorCode\":"+errorCode+",\"errorMessage\":\""+errorMessage+"\"}}");
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.ERROR, "{\"onSDKError\":{\"sdkErrorCode\":"+sdkErrorCode+",\"errorMessage\":\""+errorMessage+"\"}}");
                 pluginResult.setKeepCallback(true);
                 callbackContext.sendPluginResult(pluginResult);
             }
