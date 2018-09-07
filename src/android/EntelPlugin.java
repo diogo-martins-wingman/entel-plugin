@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import pt.wingman.entel.plugin.Teste;
 import pt.wingman.entel.plugin.FingerprintManager;
+import pt.wingman.entel.plugin.FingerprintManagerCallback
 
 public class EntelPlugin extends CordovaPlugin {
   private static final String DURATION_LONG = "long";
@@ -19,7 +20,7 @@ public class EntelPlugin extends CordovaPlugin {
       // Verify that the user sent a 'show' action
       //Toast.makeText(cordova.getActivity(), "dsa", Toast.LENGTH_LONG).show();
       Teste.teste(cordova.getActivity().getApplicationContext());
-      FingerprintManager.getInstance().initialize(PluginActivity.this, PluginActivity.this, 1, 0, false);
+      FingerprintManager.getInstance().initialize(cordova.getActivity().getApplicationContext(),this, 1, 0, false);
 
       /*if (!action.equals("show")) {
           System.out.println("teste");
@@ -45,5 +46,33 @@ public class EntelPlugin extends CordovaPlugin {
       PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
       callbackContext.sendPluginResult(pluginResult);
       return true;
+  }
+
+  private FingerPrintManagerCallback getFingerprintManagerCallback(){
+      return new FingerprintManagerCallback(){
+          public void onFingerStatusUpdate(int fingerStatus){
+
+          }
+
+          public void onBitmapUpdate(int width, int height, byte[] bytes){
+
+          }
+
+          public void onPercentageUpdate(int percentage){
+
+          }
+
+          public void onFingerprintStatusUpdate(int fingerprintStatus){
+
+          }
+
+          public void onError(int errorCode){
+
+          }
+
+          public void onSDKError(String errorMessage){
+
+          }
+      }
   }
 }
