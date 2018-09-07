@@ -39,8 +39,8 @@
         
         <lib-file src="src/android/libs/MorphoSmart_SDK_6.17.3.0.jar"/>
         <lib-file src="src/android/libs/MSO_Secu.jar"/>
-        <resource-file src="src/android/jniLibs/armeabi/libMSO_Secu.so" target="jniLibs/armeabi/libMSO_Secu.so">
-        <resource-file src="src/android/jniLibs/armeabi/libMSO100.so" target="jniLibs/armeabi/libMSO100.so">
-        <resource-file src="src/android/jniLibs/armeabi/libNativeMorphoSmartSDK_6.17.3.0.so" target="jniLibs/armeabi/libNativeMorphoSmartSDK_6.17.3.0.so">
+        <resource-file src="src/android/jniLibs/armeabi/libMSO_Secu.so" target="jniLibs/armeabi/libMSO_Secu.so"/>
+        <resource-file src="src/android/jniLibs/armeabi/libMSO100.so" target="jniLibs/armeabi/libMSO100.so"/>
+        <resource-file src="src/android/jniLibs/armeabi/libNativeMorphoSmartSDK_6.17.3.0.so" target="jniLibs/armeabi/libNativeMorphoSmartSDK_6.17.3.0.so"/>
     </platform>
 </plugin>
