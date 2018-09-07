@@ -26,9 +26,9 @@
         </config-file>
             
         <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission name="android.permission.WAKE_LOCK"/>
+                 <uses-permission android:name="android.permission.WAKE_LOCK"/>
         </config-file>
-
+            
         <source-file src="src/android/EntelPlugin.java" target-dir="src/pt/wingman/entel/plugin" />
         <source-file src="src/android/definitions/FingerStatus.java" target-dir="src/pt/wingman/entel/plugin/definitions" />
         <source-file src="src/android/definitions/FingerprintError.java" target-dir="src/pt/wingman/entel/plugin/definitions" />
