@@ -27,16 +27,25 @@ public class EntelPlugin extends CordovaPlugin {
                 compressionRate = jsonObject.getInt("compressionRate");
                 latentDetection = jsonObject.getBoolean("latentDetection");
             } catch (JSONException e) {
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.JSON_EXCEPTION);
                 callbackContext.error(e.getMessage());
                 return false;
             }
          
             Context context = cordova.getActivity().getApplicationContext();
             FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
+
+            PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
+            pluginResult.setKeepCallback(true);
+            callbackContext.sendPluginResult(pluginResult);
+            return true;
         }
 
         if (action.equals("stop")) {
             FingerprintManager.getInstance().stop();
+            PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+            callbackContext.sendPluginResult(pluginResult);
+            return true;
         }
 
         PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
@@ -44,10 +53,12 @@ public class EntelPlugin extends CordovaPlugin {
         return true;
     }
 
-    private FingerprintManagerCallback getFingerprintManagerCallback(Context context) {
+    private FingerprintManagerCallback getFingerprintManagerCallback(Context context, CallbackContext callbackContext) {
         return new FingerprintManagerCallback() {
             public void onFingerStatusUpdate(int fingerStatus) {
-
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT, fingerStatus);
+                pluginResult.setKeepCallback(true);
+                callbackContext.sendPluginResult(pluginResult);
             }
 
             public void onBitmapUpdate(int width, int height, String base64String) {
