@@ -17,9 +17,9 @@ public class EntelPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
         if (action.equals("start")) {
-            Integer compressionAlgorithm;
+            /*Integer compressionAlgorithm;
             Integer compressionRate;
-            Boolean latentDetection;
+            Boolean latentDetection;*/
             
             /*try {
                 JSONObject jsonObject = args.getJSONObject(0);
