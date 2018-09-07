@@ -33,8 +33,8 @@ public class EntelPlugin extends CordovaPlugin {
          
             Context context = cordova.getActivity().getApplicationContext();
             //Toast.makeText(context, "TESTE: " + compressionAlgorithm + ":"+compressionRate+":"+ latentDetection, Toast.LENGTH_LONG).show();
-            //FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
-            FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), 1, 0, false);
+            FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
+            //FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), 1, 0, false);
         }
 
         if ((!action.equals("stop"))) {
@@ -65,11 +65,11 @@ public class EntelPlugin extends CordovaPlugin {
             }
 
             public void onError(int errorCode) {
-                Toast.makeText(context, "FingerPrintManagerError: " + errorCode, Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "FingerPrintManagerError: " + errorCode, Toast.LENGTH_LONG).show();
             }
 
             public void onSDKError(String errorMessage) {
-                Toast.makeText(context, "SDKError: " + errorMessage, Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "SDKError: " + errorMessage, Toast.LENGTH_LONG).show();
             }
         };
     }
