@@ -31,8 +31,8 @@ public class EntelPlugin extends CordovaPlugin {
                 return false;
             }
          
-            Toast.makeText(context, "TESTE: " + compressionAlgorithm + ":"+compressionRate+":"+ latentDetection, Toast.LENGTH_LONG).show();
             Context context = cordova.getActivity().getApplicationContext();
+            Toast.makeText(context, "TESTE: " + compressionAlgorithm + ":"+compressionRate+":"+ latentDetection, Toast.LENGTH_LONG).show();
             FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
         }
 
