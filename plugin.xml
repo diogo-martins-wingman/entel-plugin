@@ -36,6 +36,8 @@
         <source-file src="src/android/MorphoUtils.java" target-dir="src/pt/wingman/entel/plugin" />
         <source-file src="src/android/Teste.java" target-dir="src/pt/wingman/entel/plugin" />
         <!--<source-file src="src/android/libs/MorphoSmart_SDK_6.17.3.0.jar" target-dir="libs/" />-->
-            <lib-file src="src/android/libs/MorphoSmart_SDK_6.17.3.0.jar"/>
+        
+        <lib-file src="src/android/libs/MorphoSmart_SDK_6.17.3.0.jar"/>
+        <lib-file src="src/android/libs/MSO_Secu.jar"/>
     </platform>
 </plugin>
