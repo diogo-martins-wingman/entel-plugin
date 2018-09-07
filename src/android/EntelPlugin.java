@@ -1,5 +1,6 @@
 package pt.wingman.entel.plugin;
 // The native Toast API
+import android.content.Context;
 import android.widget.Toast;
 // Cordova-required packages
 import org.apache.cordova.CallbackContext;
@@ -19,8 +20,9 @@ public class EntelPlugin extends CordovaPlugin {
     final CallbackContext callbackContext) {
       // Verify that the user sent a 'show' action
       //Toast.makeText(cordova.getActivity(), "dsa", Toast.LENGTH_LONG).show();
-      Teste.teste(cordova.getActivity().getApplicationContext());
-      FingerprintManager.getInstance().initialize(cordova.getActivity().getApplicationContext(),getFingerprintManagerCallback(), 1, 0, false);
+      //Teste.teste(cordova.getActivity().getApplicationContext());
+      Context context = cordova.getActivity().getApplicationContext();
+      FingerprintManager.getInstance().initialize(context,getFingerprintManagerCallback(context), 1, 0, false);
 
       /*if (!action.equals("show")) {
           System.out.println("teste");
@@ -48,7 +50,7 @@ public class EntelPlugin extends CordovaPlugin {
       return true;
   }
 
-  private FingerprintManagerCallback getFingerprintManagerCallback(){
+  private FingerprintManagerCallback getFingerprintManagerCallback(Context context){
       return new FingerprintManagerCallback(){
           public void onFingerStatusUpdate(int fingerStatus){
 
@@ -67,11 +69,11 @@ public class EntelPlugin extends CordovaPlugin {
           }
 
           public void onError(int errorCode){
-
+              Toast.makeText(context, "FingerPrintManagerError: " + errorCode, Toast.LENGTH_LONG).show();
           }
 
           public void onSDKError(String errorMessage){
-
+              Toast.makeText(context, "SDKError: " + errorMessage, Toast.LENGTH_LONG).show();
           }
       };
   }
