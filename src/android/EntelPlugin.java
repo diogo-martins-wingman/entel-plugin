@@ -17,24 +17,22 @@ public class EntelPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
         if (action.equals("start")) {
-            /*Integer compressionAlgorithm;
-            Integer compressionRate;
-            Boolean latentDetection;*/
+            int compressionAlgorithm;
+            int compressionRate;
+            boolean latentDetection;
             
-            /*try {
+            try {
                 JSONObject jsonObject = args.getJSONObject(0);
                 compressionAlgorithm = jsonObject.getInt("compressionAlgorithm");
                 compressionRate = jsonObject.getInt("compressionRate");
                 latentDetection = jsonObject.getBoolean("latentDetection");
             } catch (JSONException e) {
-                callbackContext.error("Error encountered: " + e.getMessage());
+                callbackContext.error(e.getMessage());
                 return false;
-            }*/
+            }
          
             Context context = cordova.getActivity().getApplicationContext();
-            //Toast.makeText(context, "TESTE: " + compressionAlgorithm + ":"+compressionRate+":"+ latentDetection, Toast.LENGTH_LONG).show();
-            //FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
-            FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), 1, 0, false);
+            FingerprintManager.getInstance().initialize(context, getFingerprintManagerCallback(context), compressionAlgorithm, compressionRate, latentDetection);
         }
 
         if ((!action.equals("stop"))) {
