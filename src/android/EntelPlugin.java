@@ -26,7 +26,7 @@ public class EntelPlugin extends CordovaPlugin {
         }
 
         if ((!action.equals("stop"))) {
-            FingerprintManager.getInstance().stop()
+            FingerprintManager.getInstance().stop();
         }
 
         PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
