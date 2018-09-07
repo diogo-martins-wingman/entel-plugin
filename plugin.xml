@@ -35,6 +35,6 @@
         <source-file src="src/android/FingerprintManagerCallback.java" target-dir="src/pt/wingman/entel/plugin" />
         <source-file src="src/android/MorphoUtils.java" target-dir="src/pt/wingman/entel/plugin" />
         <source-file src="src/android/Teste.java" target-dir="src/pt/wingman/entel/plugin" />
-        <source-file src="src/android/libs/MorphoSmart_SDK_6.17.3.0.jar" target-dir="libs/" />
+        <!--<source-file src="src/android/libs/MorphoSmart_SDK_6.17.3.0.jar" target-dir="libs/" />-->
     </platform>
 </plugin>
