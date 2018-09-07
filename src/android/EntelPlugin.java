@@ -48,7 +48,7 @@ public class EntelPlugin extends CordovaPlugin {
       return true;
   }
 
-  private FingerPrintManagerCallback getFingerprintManagerCallback(){
+  private FingerprintManagerCallback getFingerprintManagerCallback(){
       return new FingerprintManagerCallback(){
           public void onFingerStatusUpdate(int fingerStatus){
 
