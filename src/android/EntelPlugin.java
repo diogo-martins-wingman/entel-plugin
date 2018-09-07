@@ -68,19 +68,27 @@ public class EntelPlugin extends CordovaPlugin {
             }
 
             public void onPercentageUpdate(int percentage) {
-
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, "{\"onPercentageUpdate\":{\"percentage\":"+percentage+"}}");
+                pluginResult.setKeepCallback(true);
+                callbackContext.sendPluginResult(pluginResult);
             }
 
             public void onFingerprintStatusUpdate(int fingerprintStatus) {
-
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.OK, "{\"onFingerprintStatusUpdate\":{\"fingerprintStatus\":"+fingerprintStatus+"}}");
+                pluginResult.setKeepCallback(true);
+                callbackContext.sendPluginResult(pluginResult);
             }
 
             public void onError(int errorCode) {
-                //Toast.makeText(context, "FingerPrintManagerError: " + errorCode, Toast.LENGTH_LONG).show();
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.ERROR, "{\"onError\":{\"errorCode\":"+errorCode+"}}");
+                pluginResult.setKeepCallback(true);
+                callbackContext.sendPluginResult(pluginResult);
             }
 
-            public void onSDKError(String errorMessage) {
-                //Toast.makeText(context, "SDKError: " + errorMessage, Toast.LENGTH_LONG).show();
+            public void onSDKError(int sdkErrorCode, String errorMessage) {
+                PluginResult pluginResult = new  PluginResult(PluginResult.Status.ERROR, "{\"onSDKError\":{\"sdkErrorCode\":"+errorCode+",\"errorMessage\":\""+errorMessage+"\"}}");
+                pluginResult.setKeepCallback(true);
+                callbackContext.sendPluginResult(pluginResult);
             }
         };
     }
