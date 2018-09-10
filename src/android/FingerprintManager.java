@@ -18,14 +18,13 @@ import com.morpho.morphosmart.sdk.MorphoDevice;
 import com.morpho.morphosmart.sdk.MorphoImage;
 import com.morpho.morphosmart.sdk.SecuConfig;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.BaseNCodec;
-import org.apache.commons.codec.binary.StringUtils;
 
 import morpho.msosecu.sdk.api.MsoSecu;
 import pt.wingman.entel.plugin.definitions.FingerprintError;
