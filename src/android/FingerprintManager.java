@@ -184,7 +184,7 @@ public class FingerprintManager {
                         MorphoImage morphoImage = MorphoImage.getMorphoImageFromLive(bytes);
                         int width = morphoImage.getMorphoImageHeader().getNbColumn();
                         int height = morphoImage.getMorphoImageHeader().getNbRow();
-                        fingerprintManagerCallback.onBitmapUpdate(width, height, StringUtils.newStringUtf8(Base64.encodeBase64(bytes, false)));
+                        fingerprintManagerCallback.onBitmapUpdate(width, height, StringUtils.newStringUtf8(Base64.encodeBase64(morphoImage.getImage(), false)));
                         break;
                     case FingerprintMessageType.PERCENTAGE_UPDATE:
                         fingerprintManagerCallback.onPercentageUpdate((int) message.getMessage());
