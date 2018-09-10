@@ -46,10 +46,15 @@ public class EntelPlugin extends CordovaPlugin {
         }
 
         if (action.equals("stop")) {
-            FingerprintManager.getInstance().stop();
-            PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-            callbackContext.sendPluginResult(pluginResult);
-            return true;
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    FingerprintManager.getInstance().stop();
+                    PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+                    callbackContext.sendPluginResult(pluginResult);
+                    return true;
+                }
+            });
         }
 
         PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
