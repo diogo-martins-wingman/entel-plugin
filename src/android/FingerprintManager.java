@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
-import android.util.Base64;
 
 import com.morpho.android.usb.USBManager;
 import com.morpho.morphosmart.sdk.CallbackMask;
@@ -23,6 +22,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.BaseNCodec;
+import org.apache.commons.codec.binary.StringUtils;
 
 import morpho.msosecu.sdk.api.MsoSecu;
 import pt.wingman.entel.plugin.definitions.FingerprintError;
@@ -182,7 +185,7 @@ public class FingerprintManager {
                         MorphoImage morphoImage = MorphoImage.getMorphoImageFromLive(bytes);
                         int width = morphoImage.getMorphoImageHeader().getNbColumn();
                         int height = morphoImage.getMorphoImageHeader().getNbRow();
-                        fingerprintManagerCallback.onBitmapUpdate(width, height, Base64.encodeToString(bytes, Base64.NO_WRAP));
+                        fingerprintManagerCallback.onBitmapUpdate(width, height, StringUtils.newStringUtf8(Base64.encodeBase64(bytes, false)));
                         break;
                     case FingerprintMessageType.PERCENTAGE_UPDATE:
                         fingerprintManagerCallback.onPercentageUpdate((int) message.getMessage());
