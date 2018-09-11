@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
+import android.util.Base64;
 
 import com.morpho.android.usb.USBManager;
 import com.morpho.morphosmart.sdk.CallbackMask;
@@ -17,9 +18,6 @@ import com.morpho.morphosmart.sdk.LatentDetection;
 import com.morpho.morphosmart.sdk.MorphoDevice;
 import com.morpho.morphosmart.sdk.MorphoImage;
 import com.morpho.morphosmart.sdk.SecuConfig;
-
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -184,7 +182,7 @@ public class FingerprintManager {
                         MorphoImage morphoImage = MorphoImage.getMorphoImageFromLive(bytes);
                         int width = morphoImage.getMorphoImageHeader().getNbColumn();
                         int height = morphoImage.getMorphoImageHeader().getNbRow();
-                        fingerprintManagerCallback.onBitmapUpdate(width, height, StringUtils.newStringUtf8(Base64.encodeBase64(morphoImage.getImage(), false)));
+                        fingerprintManagerCallback.onBitmapUpdate(width, height, Base64.encodeToString(bytes, Base64.NO_WRAP));
                         break;
                     case FingerprintMessageType.PERCENTAGE_UPDATE:
                         fingerprintManagerCallback.onPercentageUpdate((int) message.getMessage());
